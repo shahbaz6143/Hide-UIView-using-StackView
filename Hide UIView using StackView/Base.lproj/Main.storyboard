@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,80 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hide_UIView_using_StackView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="LvE-ea-hLV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNw-BI-eVY">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="amZ-O6-lwM"/>
+                                        </constraints>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ocG-HM-0Cf"/>
+                                        </connections>
+                                    </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-7v-jEx">
+                                        <rect key="frame" x="0.0" y="40" width="414" height="712"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="8Xq-jm-FwI"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="orP-Bv-Lw9"/>
+                                        </connections>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aki-8Z-9ll">
+                                        <rect key="frame" x="0.0" y="752" width="414" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOR-GX-QDg">
+                                                <rect key="frame" x="65.333333333333343" y="31" width="283.66666666666663" height="38"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.086059294641017914" green="0.19960612058639526" blue="0.3760790228843689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="IOR-GX-QDg" firstAttribute="centerX" secondItem="Aki-8Z-9ll" secondAttribute="centerX" id="2rJ-3f-U6Y"/>
+                                            <constraint firstAttribute="height" constant="100" id="Yuw-Cj-xqV"/>
+                                            <constraint firstItem="IOR-GX-QDg" firstAttribute="centerY" secondItem="Aki-8Z-9ll" secondAttribute="centerY" id="ho2-qR-Kdo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FNw-BI-eVY" firstAttribute="leading" secondItem="LvE-ea-hLV" secondAttribute="leading" id="1ri-T7-YcV"/>
+                                    <constraint firstAttribute="trailing" secondItem="aoi-7v-jEx" secondAttribute="trailing" id="RrV-zg-goM"/>
+                                    <constraint firstItem="aoi-7v-jEx" firstAttribute="leading" secondItem="LvE-ea-hLV" secondAttribute="leading" id="VS7-vE-sip"/>
+                                    <constraint firstItem="aoi-7v-jEx" firstAttribute="top" secondItem="FNw-BI-eVY" secondAttribute="bottom" id="VTm-Ft-M61"/>
+                                    <constraint firstAttribute="bottom" secondItem="Aki-8Z-9ll" secondAttribute="bottom" id="c6z-Vz-ad7"/>
+                                    <constraint firstItem="Aki-8Z-9ll" firstAttribute="leading" secondItem="LvE-ea-hLV" secondAttribute="leading" id="pwu-Se-0gr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Aki-8Z-9ll" secondAttribute="trailing" id="ru1-bg-HOp"/>
+                                    <constraint firstItem="FNw-BI-eVY" firstAttribute="top" secondItem="LvE-ea-hLV" secondAttribute="top" id="zDT-h6-dTd"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LvE-ea-hLV" secondAttribute="trailing" id="2AR-BB-M0U"/>
+                            <constraint firstItem="LvE-ea-hLV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8pz-fx-sMI"/>
+                            <constraint firstItem="LvE-ea-hLV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hfm-0U-Y5G"/>
+                            <constraint firstAttribute="bottom" secondItem="LvE-ea-hLV" secondAttribute="bottom" id="NCc-4o-zcI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomView" destination="Aki-8Z-9ll" id="UL8-Pe-oWc"/>
+                        <outlet property="edit" destination="FNw-BI-eVY" id="0OD-9X-k8k"/>
+                        <outlet property="tableview" destination="aoi-7v-jEx" id="gpi-Oy-BMB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
 </document>
